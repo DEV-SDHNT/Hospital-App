@@ -78,7 +78,6 @@ func UpdatePatient(c *gin.Context) {
 	config.DB.Save(&patient)
 	session := sessions.Default(c)
 	role := session.Get("role")
-	fmt.Println(role, "--------------------")
 	if role == "receptionist" {
 		c.Redirect(http.StatusFound, "/receptionist/dashboard")
 	} else {
