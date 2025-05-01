@@ -3,21 +3,22 @@ package main
 import (
 	"Hospital/config"
 	"Hospital/routes"
-	//"fmt"
-	"Hospital/models"
+
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-contrib/sessions/cookie"
 	"github.com/gin-gonic/gin"
-	"golang.org/x/crypto/bcrypt"
+	//"fmt"
+	// "Hospital/models"
+	// "golang.org/x/crypto/bcrypt"
 )
 
-func seedUser() {
-	passwordDoctor, _ := bcrypt.GenerateFromPassword([]byte("doctor@123"), bcrypt.DefaultCost)
-	passwordRecep, _ := bcrypt.GenerateFromPassword([]byte("recep@123"), bcrypt.DefaultCost)
+// func seedUser() {
+// 	passwordDoctor, _ := bcrypt.GenerateFromPassword([]byte("doctor@123"), bcrypt.DefaultCost)
+// 	passwordRecep, _ := bcrypt.GenerateFromPassword([]byte("recep@123"), bcrypt.DefaultCost)
 
-	config.DB.Create(&models.User{Username: "doctor", Password: string(passwordDoctor), Role: "doctor"})
-	config.DB.Create(&models.User{Username: "reception", Password: string(passwordRecep), Role: "receptionist"})
-}
+// 	config.DB.Create(&models.User{Username: "doctor", Password: string(passwordDoctor), Role: "doctor"})
+// 	config.DB.Create(&models.User{Username: "reception", Password: string(passwordRecep), Role: "receptionist"})
+// }
 
 func main() {
 	r := gin.Default()
