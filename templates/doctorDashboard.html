@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Doctor</title>
+		<style>
+			body{
+				background-color: black;
+				color: white;
+			}
+			h1{
+				text-align: center;
+			}
+			.logout{
+				position: absolute;
+				right: 2vw;
+				top:2vh;
+			}
+			h2{
+				text-align: center;
+			}
+			a{
+				color: white;
+				text-decoration: none;
+			}
+			button{
+				background-color: #222;
+				padding: 10px;
+				color: white;
+				border: none;
+				border-radius: 10px;
+				margin: 5px;
+			}
+			.add-patient{
+				display: flex;
+				justify-content: center;
+			}
+			ul{
+				list-style: none;
+				display: flex;
+				justify-content: space-evenly;
+				flex-wrap: wrap;
+			}
+			li{
+				background-color: #333;
+				padding: 20px;
+				border-radius: 10px;
+				margin: 20px;
+				width: max-content;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Doctors Dashboard</h1>
+		<a href="/logout" class="logout"><button>Logout</button></a>
+		<div class="container">
+			<h2>Patients</h2>
+			<a href="/doctor/dashboard/create" class="add-patient"><button>Add Patient</button></a>
+			<ul>
+				{{ range .patients }}
+				<li>
+					<strong>{{ .ID }}</strong><br>
+					<strong>{{ .Name }}</strong><br>
+					Date: {{ .Date }} <br>
+					Bed no.: {{ .Bed }}<br>
+					<a href="/doctor/dashboard/update/{{ .ID }}"><button>Edit</button></a>
+					<a href="/doctor/dashboard/delete/{{ .ID }}"><button>Delete</button></a>
+				</li>
+				{{ end }}
+			</ul>
+		</div>
+	</body>
+</html>

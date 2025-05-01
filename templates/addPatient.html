@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Add Patient</title>
+		<style>
+			body{
+				background-color: black;
+				color: white;
+			}
+			h1{
+				text-align: center;
+			}
+			.logout{
+				position: absolute;
+				right: 2vw;
+				top:2vh;
+			}
+			h2{
+				text-align: center;
+			}
+			a{
+				color: white;
+				text-decoration: none;
+			}
+			button{
+				background-color: #222;
+				padding: 10px;
+				color: white;
+				border: none;
+				border-radius: 10px;
+				margin: 5px;
+			}
+			form{
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				translate: -50% -50%;
+				display: grid;
+			}
+			form input{
+				padding: 10px;
+				margin: 10px;
+				width: 50vw;
+				border: none;
+				border-radius: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>Patient Form</h2>
+		{{ if eq .role "doctor"}}
+		<form action="/doctor/dashboard/create" method="post">
+		{{ else }}
+		<form action="/receptionist/dashboard/create" method="post">
+		{{ end }}
+			<label for="Name">Name</label>
+			<input type="text" name="Name" required><br>
+			<label for="Illness">Illness</label>
+			<input type="text" name="Illness"><br>
+			<label for="Address">Address</label>
+			<input type="text" name="Address"><br>
+			<label for="Date">Date</label>
+			<input type="text" name="Date"><br>
+			<label for="Bed">Bed no.</label>
+			<input type="text" name="Bed"><br>
+			<button type="submit">Add Patient</button>
+		</form>
+		
+	</body>
+</html>
